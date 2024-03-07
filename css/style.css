@@ -7725,7 +7725,7 @@ h1, h2, h3, h4, h5, h6 {
   
 }
 #fh5co-board .item img {
-  max-width: 580px;
+  max-width: 100%;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
