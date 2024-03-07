@@ -7496,8 +7496,8 @@ h1, h2, h3, h4, h5, h6 {
   float: left;
   width: 100%;
   position: relative;
-  padding-top: 4em;
-  padding-bottom: 4em;
+  padding-top: 3em;
+  padding-bottom: 1em;
 }
 @media screen and (max-width: 480px) {
   #fh5co-header {
@@ -7875,7 +7875,7 @@ pre {
 }
 
 #fh5co-footer {
-  padding: 10em 0;
+  padding: 2em 0;
 }
 @media screen and (max-width: 768px) {
   #fh5co-footer {
