@@ -9,8 +9,8 @@ endline = 0
 size_thumbnail = (580,1200)
 
 ##clear thumbs folder and create it
-
-shutil.rmtree('C:/Web_Design/maithonisphotography/images/' +folder+'/thumbs')
+if os.path.exists('C:/Web_Design/maithonisphotography/images/' +folder+'/thumbs'):
+     shutil.rmtree('C:/Web_Design/maithonisphotography/images/' +folder+'/thumbs')
 os.mkdir('C:/Web_Design/maithonisphotography/images/' +folder+'/thumbs')
 
 ##creates divs.txt based on images in folder
