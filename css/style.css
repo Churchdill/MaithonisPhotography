@@ -8269,7 +8269,8 @@ pre {
 }
 
 .mfp-with-zoom.mfp-ready.mfp-bg {
-  opacity: 0.95;
+  opacity: 1;
+  background: white; /*was originally black with .95 opacity*/
 }
 
 .mfp-with-zoom.mfp-removing .mfp-container,
