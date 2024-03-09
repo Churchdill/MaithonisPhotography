@@ -2,26 +2,29 @@ import os
 import sys
 import shutil
 from PIL import Image
-print ('argument list', sys.argv)
+
+# print ('argument list', sys.argv)
+rootpath = 'C:/Web_Design/maithonisphotography/'
+imagepath = rootpath + 'images/'
 folder = ""  +(sys.argv[1])
 startline = 0
 endline = 0
 size_thumbnail = (580,1200)
 
 ##clear thumbs folder and create it
-if os.path.exists('C:/Web_Design/maithonisphotography/images/' +folder+'/thumbs'):
-     shutil.rmtree('C:/Web_Design/maithonisphotography/images/' +folder+'/thumbs')
-os.mkdir('C:/Web_Design/maithonisphotography/images/' +folder+'/thumbs')
+if os.path.exists(imagepath +folder+'/thumbs'):
+     shutil.rmtree(imagepath +folder+'/thumbs')
+os.mkdir(imagepath +folder+'/thumbs')
 
 ##creates divs.txt based on images in folder
-f = open('C:/Web_Design/maithonisphotography/divs.txt', 'w')
-for filename in reversed(os.listdir('C:/Web_Design/maithonisphotography/images/' +folder)):
+f = open(rootpath+'divs.txt', 'w')
+for filename in reversed(os.listdir(imagepath +folder)):
      if (filename != 'thumbs'):
           ##resizes images
-          i = Image.open('C:/Web_Design/maithonisphotography/images/'+folder+'/'+filename)
+          i = Image.open(imagepath+folder+'/'+filename)
           i.thumbnail(size_thumbnail)
           (name, ext) = os.path.splitext(filename)
-          i.save('C:/Web_Design/maithonisphotography/images/'+folder+'/thumbs/'+name+'.webp','WEBP')
+          i.save(imagepath+folder+'/thumbs/'+name+'.webp','WEBP')
 
           ##writes div classes
           f.write('\t\t\t\t\t\t<div class="item">\r')
@@ -32,14 +35,14 @@ for filename in reversed(os.listdir('C:/Web_Design/maithonisphotography/images/'
 f.close()
 
 ##grabs divs.txt data into memory and deletes the file
-with open("C:/Web_Design/maithonisphotography/divs.txt", "r") as f:
+with open(rootpath+'divs.txt', "r") as f:
      divcontent = f.readlines()
 f.close()
-if os.path.exists("C:/Web_Design/maithonisphotography/divs.txt"):
-     os.remove("C:/Web_Design/maithonisphotography/divs.txt")
+if os.path.exists(rootpath+'divs.txt'):
+     os.remove(rootpath+'divs.txt')
 
 ##finds start position
-with open("C:/Web_Design/maithonisphotography/"+folder+".html", "r") as f:
+with open(rootpath+folder+".html", "r") as f:
     lines = f.readlines()
     for row in lines:
           # check if string present on a current line
@@ -53,7 +56,7 @@ with open("C:/Web_Design/maithonisphotography/"+folder+".html", "r") as f:
 f.close()
 
 ##finds end position
-with open("C:/Web_Design/maithonisphotography/"+folder+".html", "r") as f:
+with open(rootpath+folder+".html", "r") as f:
     lines = f.readlines()
     for row in lines:
           # check if string present on a current line
@@ -71,14 +74,14 @@ if startline == 0 or endline == 0:
      exit()
 
 ##cuts away front and back of file ignoring content in middle
-with open("C:/Web_Design/maithonisphotography/"+folder+".html") as f:
+with open(rootpath+folder+".html") as f:
      content = f.readlines()
      contentstart = content[:startline]
      contentend = content[endline:]
 f.close()
 
 ##creates new file with beginning divs and end
-with open("C:/Web_Design/maithonisphotography/"+folder+".html", "w") as f:
+with open(rootpath+folder+".html", "w") as f:
      f.writelines(contentstart)
      f.writelines(divcontent)
      f.writelines(contentend)
