@@ -50,19 +50,19 @@
 			closeBtnInside: false,
 			fixedContentPos: true,
 			mainClass: 'mfp-no-margins mfp-with-zoom mfp', // class to remove default margin from left and right side
-			/*image: {
+			image: {
 				verticalFit: true
-			},*/
+			},
 			gallery:{
 				enabled:true,
-				navigateByImgClick: false,
-				preload: [1,1] // Will preload 1 - before current, and 1 after the current image
+				navigateByImgClick: false
+				//preload: [1,1] // Will preload 1 - before current, and 1 after the current image
 			},
 			zoom: {
 				enabled: true, // By default it's false, so don't forget to enable it
 
 				duration: 300, // duration of the effect, in milliseconds
-				easing: 'ease-in-out', // CSS transition easing function
+				//easing: 'ease-in-out', // CSS transition easing function
 
 				// The "opener" function should return the element from which popup will be zoomed in
 				// and to which popup will be scaled down
