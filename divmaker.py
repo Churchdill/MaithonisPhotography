@@ -3,6 +3,8 @@ import sys
 import shutil
 from PIL import Image
 
+# >python divmaker.py wildlife
+
 # print ('argument list', sys.argv)
 rootpath = 'C:/Web_Design/maithonisphotography/'
 imagepath = rootpath + 'images/'
@@ -19,8 +21,17 @@ os.mkdir(imagepath +folder+'/thumbs')
 ##creates divs.txt based on images in folder
 f = open(rootpath+'divs.txt', 'w')
 for filename in reversed(os.listdir(imagepath +folder)):
+
      if (filename != 'thumbs'):
-          ##resizes images
+                  
+          # strips exif        
+          i = Image.open(imagepath+folder+'/'+filename)
+          data = list(i.getdata())
+          image_without_exif = Image.new(i.mode, i.size)
+          image_without_exif.putdata(data)
+          image_without_exif.save(imagepath+folder+'/'+filename)
+
+          ##makes resized thumbnails
           i = Image.open(imagepath+folder+'/'+filename)
           i.thumbnail(size_thumbnail)
           (name, ext) = os.path.splitext(filename)
