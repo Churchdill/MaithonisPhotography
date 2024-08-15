@@ -7739,6 +7739,10 @@ h1, h2, h3, h4, h5, h6 {
     filter:brightness(.7)
 }
 
+.image-brightness:hover {
+  filter:brightness(.7)
+}
+
 .js .animate-box {
   opacity: 0;
 }

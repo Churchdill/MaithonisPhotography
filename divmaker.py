@@ -3,7 +3,15 @@ import sys
 import shutil
 from PIL import Image
 
-# >python divmaker.py wildlife
+#
+#
+#
+#   here's the terminal line
+#
+#  >python divmaker.py wildlife
+#
+#
+#
 
 # print ('argument list', sys.argv)
 rootpath = 'C:/Web_Design/maithonisphotography/'
